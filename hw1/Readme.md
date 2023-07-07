@@ -1,0 +1,5 @@
+- *Explain in your own words how you understand prototypical inheritance works in JavaScript.*
+- Mainly, prototypical inheritance is technique that used for objecs, so ,objects can inherit properties and methods from other objects. Object's prototype when each object has an internal "link" to another object. When we want to access a property on an object, js first checks if that property exists on the object itself. If it doesn't, it follows the prototype chain. This process continuing until it finds the property  or until it reaches the end of the prototype chain. If prototype can be found then js returns its value.
+
+- *Why is it necessary to call super() in the constructor of a child class?*
+- If you check my homework, in Programmer class i used super(). Because Programmer class (child) extends from Employee class (parent). And properties of Employee are same with properties of Programmer. So for not repeating same code we use super() and it establish inheritance relationship, Initialize the parent class.
