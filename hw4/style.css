@@ -1,0 +1,27 @@
+@keyframes color {
+    0% { background-color: blue; }
+    100% { background-color: rgb(125, 2, 2); }
+  }
+body{
+    margin:0;
+}
+
+h1{
+    color:aliceblue;
+    padding: 10px;
+    animation: color 5s linear infinite;
+    margin-top: -10px;
+    
+}
+ul{
+    padding: 10px;
+    list-style: none;
+    margin-top: -10px;
+    background-color: rgb(254, 211, 211);
+}
+p{
+    background-color: rgb(153, 37, 37);
+    padding: 10px;
+    color: azure;
+    margin-top: -20px;
+}
