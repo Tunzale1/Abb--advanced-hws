@@ -1,0 +1,61 @@
+body{
+  margin: 0;
+  padding: 0;
+}
+header {
+  background-color: #1da1f2;
+  color:white;
+  padding: 10px;
+  text-align: center;
+}
+section{
+  margin-top: 20px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.page {
+  width: 80%;
+  margin: auto;
+}
+.card {
+  border: 0.5px solid #cccccc8d;
+  padding: 30px;
+}
+.profile{
+  display: flex;
+  align-items: start;
+  margin-bottom: 20px;
+}
+.user {
+  font-size: 17px;
+  font-weight: bolder;
+  color: black;
+}
+.email {
+  font-size: 13px;
+  color: #536471;
+  display: block;
+  margin-top: -17px;
+}
+.title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.text {
+  font-size: 20px;
+  margin-bottom: 10px;
+  display: block;
+  margin-top: -1px;
+}
+.but {
+  font-size: 20px;
+  position:absolute;
+  color: red;
+  border:1px solid red;
+  background-color: white;
+  padding: 5px;
+  left:80%;
+}
+
+
+
