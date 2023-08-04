@@ -1,0 +1,19 @@
+.button {
+    padding: 15px 25px;
+    border: none;
+    border-radius: 15px;
+    color: #fff;
+    font-size: 17px;
+    cursor: pointer;
+    margin: 18px;
+  }
+  
+  .button:nth-child(1) {
+    background-color: #007bff;
+  }
+  
+  .button:nth-child(2) {
+    background-color: #e8fc04;
+    color: black;
+  }
+  
