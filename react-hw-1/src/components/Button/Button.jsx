@@ -1,15 +1,11 @@
-import React from 'react';
-import './Button.scss';
+import React, { Component } from "react";
+import "./Button.scss";
 
-class Button extends React.Component {
+class Button extends Component {
   render() {
-    const { backgroundColor, text, onClick } = this.props;
+    const { backgroundColor, text, onClick, dataModal } = this.props;
     return (
-      <button
-        className="button"
-        style={{ backgroundColor }}
-        onClick={onClick}
-      >
+      <button style={{ backgroundColor: backgroundColor }} data-modal={dataModal} onClick={onClick}>
         {text}
       </button>
     );

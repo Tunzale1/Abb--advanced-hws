@@ -1,86 +1,100 @@
-import React from 'react';
-import Button from './components/Button/Button.jsx';
-import Modal from './components/Modal/Modal.jsx';
+import React, { Component } from 'react'
+import Button from './components/Button/Button';
+import Modal from './components/Modal/Modal';
+import './index.css'
 
+class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      isOpen: false,
+      data: {}
+    }
+  }
 
-class App extends React.Component {
-  state = {
-    firstmodal: false,
-    seconmodal: false,
-  };
+  modalData = [
+    {
+      id: 'modal1',
+      header: 'First Modal',
+      closeButton: true,
+      text: "Is this the first modal window?",
+      actions: (
+        <>
+          <Button
+            backgroundColor='green'
+            text='Yes'
+          />
+          <Button
+            backgroundColor='red'
+            text='No'
+          />
+        </>
+      )
+    },
+    {
+      id: 'modal2',
+      header: 'Second Modal',
+      closeButton: true,
+      text: "Is this the second modal window?",
+      actions: (
+        <>
+          <Button
+            backgroundColor='green'
+            text='Yes'
+          />
+          <Button
+            backgroundColor='red'
+            text='No'
+          />
+        </>
+      )
+    }
+  ]
 
-  Modal1opened = () => {
-    this.setState({ firstmodal: true });
-  };
+  handleOpenModal = (modalId) => {
+    const currentModal = this.modalData.find((modal) => modal.id === modalId);
+    if (currentModal) {
+      this.setState({ isOpen: true, data: currentModal });
+    }
 
-  Modal2opened = () => {
-    this.setState({ seconmodal: true });
-  };
+  }
 
-  closeModal1 = () => {
-    this.setState({ firstmodal: false });
-  };
+  handleCloseModal = () => {
+    this.setState({ isOpen: false, data: {} })
+  }
 
-  closeModal2 = () => {
-    this.setState({ seconmodal: false });
-  };
 
   render() {
-    const firstaction = (
-      <>
-        <Button
-          backgroundColor="green"
-          text="Close"
-          onClick={this.closeModal1}
-        />
-      </>
-    );
-
-    const secondaction = (
-      <>
-        <Button
-          backgroundColor="green"
-          text="Close"
-          onClick={this.closeModal2}
-        />
-      </>
-    );
 
     return (
-      <div className="window">
+
+      <div className="App">
+
         <Button
-          backgroundColor="blue"
-          text="Open first modal"
-          onClick={this.Modal1opened}
+          backgroundColor='blue'
+          text='Open first modal'
+          dataModal='modal1'
+          onClick={(e) => this.handleOpenModal(e.target.dataset.modal)}
         />
         <Button
-          backgroundColor="yellow"
-          text="Open second modal"
-          onClick={this.Modal2opened}
+          backgroundColor='pink'
+          text='Open second modal'
+          dataModal='modal2'
+          onClick={(e) => this.handleOpenModal(e.target.dataset.modal)}
         />
 
-        {this.state.firstmodal && (
+        {this.state.isOpen &&
           <Modal
-            header="First Modal"
-            closeButton={true}
-            text="This is the first modal window."
-            actions={firstaction}
-            onClose={this.closeModal1}
+            data={this.state.data}
+            onClose={this.handleCloseModal}
           />
-        )}
+        }
 
-        {this.state.seconmodal && (
-          <Modal
-            header="Second Modal"
-            closeButton={true}
-            text="This is the second modal window."
-            actions={secondaction}
-            onClose={this.closeModal2}
-          />
-        )}
       </div>
+
     );
   }
 }
+
 
 export default App;

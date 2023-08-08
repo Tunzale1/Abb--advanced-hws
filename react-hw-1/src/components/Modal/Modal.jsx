@@ -1,20 +1,34 @@
-import React from 'react';
-import './Modal.scss';
+import React, { Component } from "react";
+import "./Modal.scss";
+import svg from "./cancel.svg";
 
-class Modal extends React.Component {
+class Modal extends Component {
+  handleModalContentClick = (e) => {
+    e.stopPropagation();
+  };
+  
   render() {
-    const { header, closeButton, text, actions, onClose } = this.props;
+    const { data, onClose } = this.props;
+
     return (
-      <div className="popup" onClick={onClose}>
-        <div className="modal" onClick={(e) => e.stopPropagation()}>
-          {closeButton && (
-            <span className="close" onClick={onClose}>
-              &times;
-            </span>
-          )}
-          <h2>{header}</h2>
-          <p>{text}</p>
-          <div className="actions">{actions}</div>
+      <div className="modal-overlay" onClick={onClose}>
+        <div className="modal" onClick={this.handleModalContentClick}>
+          <div className="modal-content">
+            <div className="modal-header">
+              <h3 className="modal-title">{data.header}</h3>
+              {data.closeButton ? (
+                <span className="close-btn" onClick={onClose}>
+                  <img src={svg} alt="" />
+                </span>
+              ) : (
+                ""
+              )}
+            </div>
+            <div className="modal-body">
+              <p>{data.text}</p>
+            </div>
+            <div className="modal-footer">{data.actions}</div>
+          </div>
         </div>
       </div>
     );
