@@ -1,0 +1,72 @@
+[
+    {
+        "name": "Backpack",
+        "price": 60,
+        "img_path": "./images/product-1-2.jpg",
+        "sku": 111111,
+        "color": "white"
+    },
+    {
+        "name": "Biker jacket",
+        "price": 120.99,
+        "img_path": "./images/product-2-1.jpg",
+        "sku": 222222,
+        "color": "white"
+    },
+    {
+        "name": "Sandals",
+        "price": 70,
+        "img_path": "./images/product-3-2.jpg",
+        "sku": 333333,
+        "color": "white"
+    },
+    {
+        "name": "Super Skinny High Jeggings",
+        "price": 190,
+        "img_path": "./images/product-4-1.jpg",
+        "sku": 444444,
+        "color": "white"
+    },
+    {
+        "name": "Short wrap dress",
+        "price": 80,
+        "img_path": "./images/product-5-1.jpg",
+        "sku": 555555,
+        "color": "white"
+    },
+    {
+        "name": "Tie-detail top",
+        "price": 50,
+        "img_path": "./images/product-6-1.jpg",
+        "sku": 666666,
+        "color": "white"
+    },
+    {
+        "name": "Dress with a belt",
+        "price": 130,
+        "img_path": "./images/product-7-1.jpg",
+        "sku": 777777,
+        "color": "white"
+    },
+    {
+        "name": "Linen-blend paper bag trousers",
+        "price": 60,
+        "img_path": "./images/product-8-1.jpg",
+        "sku": 888888,
+        "color": "white"
+    },
+    {
+        "name": "Paper straw shopper",
+        "price": 81,
+        "img_path": "./images/product-9-2.jpg",
+        "sku": 999999,
+        "color": "white"
+    },
+    {
+        "name": "Paper straw shopper",
+        "price": 56,
+        "img_path": "./images/product-10-2.jpg",
+        "sku": 101010,
+        "color": "white"
+    }  
+]
