@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import "./Items.scss";
 import PropTypes from "prop-types";
-import Product from "../Products/Products";
+import Product from "../Product/Product";
 
-class ProductList extends Component {
+class Items extends Component {
   render() {
     const { products, onClick, handleFav, favorites, removeFav } = this.props;
 
@@ -26,7 +26,7 @@ class ProductList extends Component {
   }
 }
 
-ProductList.propTypes = {
+Items.propTypes = {
   products: PropTypes.array,
   onClick: PropTypes.func,
   handleFav: PropTypes.func,
@@ -34,9 +34,9 @@ ProductList.propTypes = {
   removeFav : PropTypes.func
 };
 
-ProductList.defaultProps = {
+Items.defaultProps = {
   products: [],
   favorites: []
 };
 
-export default ProductList;
+export default Items;
