@@ -9,3 +9,4 @@
 - hw1- components / Modal windows
 - hw2- lifecycle, prototypes / Online Web store
 - hw3- router, hooks / Online Web store
+- hw4- redux library (redux, react-redux,redux-thunk) / Online Web store
