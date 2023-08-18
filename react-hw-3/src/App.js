@@ -3,29 +3,26 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar/Navbar.jsx'
 import Modal from './components/Modal/Modal';
-import Favorites from './pages/Favorites';
-import Cart from './pages/Cart';
-import Home from './pages/Home';
+import {Cart, Favorites, Home} from './pages';
 import { v4 as uuidv4 } from 'uuid';
 import { fetchData } from './api';
 
 
 const App = () => {
-
-  const getFromLocal = (key) => {
+  const getlocal = (key) => {
     const localData = JSON.parse(localStorage?.getItem(key));
     return localData || [];
   }
 
 
   const [products, setProducts] = useState([]);
-  const [cart, setCart] = useState(getFromLocal('cart'));
-  const [favorites, setFavorites] = useState(getFromLocal('favorites'));
+  const [cart, setCart] = useState(getlocal('cart'));
+  const [favorites, setFavorites] = useState(getlocal('favorites'));
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalData, setModalData] = useState('');
   const [selectedProductId, setSelectProductId] = useState(null);
-  const [total, setTotal] = useState(0);
+  const [modalData, setModalData] = useState('');
   const [actionType, setActionType] = useState('')
+  const [total, setTotal] = useState(0);
 
   
   useEffect(() => {
@@ -42,9 +39,6 @@ const App = () => {
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart));
   }, [cart])
-
-
-
 
 
   const handleAction = (productId, action) => {
@@ -124,15 +118,14 @@ const App = () => {
   const modalContent = [
     {
       id: 'modal1',
-      header: 'Do you want to add this product?',
+      header: 'Are you want to add this item in your card?',
       closeButton: true,
-      text: "Once you add this product, it will be shown in the shopping cart. Are you sure you want to add it?",
+
     },
     {
       id: 'modal2',
-      header: 'Do you want to remove this product?',
+      header: 'Are you want to delete this item in your card?',
       closeButton: true,
-      text: "Once you remove this product, it won't be possible to undo this action. Are you sure you want to remove it?",
     },
   ];
 
@@ -156,14 +149,14 @@ const App = () => {
             <>
               {actionType === "add" ? (
                 <button onClick={() => handleAddProduct(selectedProductId)}>
-                  Ok
+                  Yes
                 </button>
               ) : actionType === "remove" ? (
                 <button onClick={() => removeProduct(selectedProductId)}>
-                  Ok
+                  Yes
                 </button>
               ) : null}
-              <button onClick={handleCloseModal}>Cancel</button>
+              <button onClick={handleCloseModal}>No</button>
             </>
           }
           onClose={handleCloseModal}

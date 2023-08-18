@@ -1,7 +1,6 @@
 import Items from "../components/Items/Items";
-
-const Cart = ({ products, onClick, handleFav, removeFav, favorites, handleAction }) => {
-  
+import React from 'react';
+export function Cart ({ products, onClick, handleFav, favorites, removeFav,  handleAction }) {
 
   return (
     <div className="container">
@@ -18,4 +17,4 @@ const Cart = ({ products, onClick, handleFav, removeFav, favorites, handleAction
   );
 };
 
-export default Cart;
+

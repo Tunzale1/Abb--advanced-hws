@@ -11,15 +11,16 @@ const Navbar = ({ cart, favorites, total, handleAction }) => {
   };
 
   return (
-    <header className="header">
+    <header className="navbar">
       <div className="container">
-        <div className="header__wrapper">
-          <div className="header-nav">
+        <div className="navbar__wrapper">
+          <div className="mar">
+          <div className="navbar-link">
             <Link to="/">Home</Link>
             <Link to="/favorites">Favs</Link>
-            <Link to="/cart">Cart Items</Link>
+            <Link to="/cart">Cart</Link>
           </div>
-
+          </div>
           <div className="favorite-products">
           <i className="fa-regular fa-heart">&nbsp;</i> 
             Favs ({favorites.length})
@@ -46,15 +47,15 @@ const Navbar = ({ cart, favorites, total, handleAction }) => {
                           </div>
                           <div className="cart-item--right">
                             <span className="cart-item-price">
-                              {"$" + product.price}
+                              { product.price+ " " + "azn"}
                             </span>
                             <button
-                              className="btn-delete"
+                              className="remove"
                               onClick={() => {
                                 handleAction(product.id, "remove");
                               }}
                             >
-                              <p className="delete">Delete</p>
+                              <i className="fa-regular fa-2x fa-circle-xmark"></i>
                             </button>
                           </div>
                         </div>
@@ -63,8 +64,8 @@ const Navbar = ({ cart, favorites, total, handleAction }) => {
                   })}
                 </ul>
                 <div className="cart-details">
-                  <h3 className="total-cost-title">Total delivery cost: </h3>
-                  <span className="total-price"> {total + "azn"}</span>
+                  <h3 className="total-cost-title">Total cost: </h3>
+                  <span className="total-price"> {total + " "+"azn"}</span>
                 </div>
               </div>
             </div>

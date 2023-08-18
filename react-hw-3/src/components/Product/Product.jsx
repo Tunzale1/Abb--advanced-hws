@@ -1,13 +1,11 @@
-
 import "./Product.scss";
 import PropTypes from "prop-types";
-
 
 const Product = ({
   product,
   onClick,
-  handleFav,
   favorites,
+  handleFav,
   removeFav,
   isInCart,
   handleAction
@@ -41,7 +39,7 @@ const Product = ({
         <div className="products-det">
         {isInCart ? (
           <button
-            className="btn-delete"
+            className="delete"
             onClick={() => {
               handleAction(product.id, "remove");
             }}
@@ -50,7 +48,7 @@ const Product = ({
           </button>
         ) : (
           <button
-            className="btn-add"
+            className="add"
             onClick={() => onClick(product, "modal1")}
           >
           Add to Cart

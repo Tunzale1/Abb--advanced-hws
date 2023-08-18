@@ -1,6 +1,7 @@
 import Items from "../components/Items/Items";
+import React from 'react';
 
-const Home = ({ products, onClick, handleFav, favorites, removeFav }) => {
+export function Home ({ products, onClick, handleFav, favorites, removeFav }) {
   return (
     <div className="container">
       <Items
@@ -14,4 +15,3 @@ const Home = ({ products, onClick, handleFav, favorites, removeFav }) => {
   );
 };
 
-export default Home;

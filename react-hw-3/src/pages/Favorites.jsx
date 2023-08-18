@@ -1,6 +1,6 @@
 import Items from "../components/Items/Items";
-
-const Favorites = ({ products, onClick, handleFav, favorites, removeFav }) => {
+import React from 'react';
+export function Favorites ({ products, onClick, handleFav, favorites, removeFav }) {
   const favoriteProducts = products.filter(product => favorites.includes(product.sku));
 
   return (
@@ -16,4 +16,4 @@ const Favorites = ({ products, onClick, handleFav, favorites, removeFav }) => {
   );
 };
 
-export default Favorites;
+
