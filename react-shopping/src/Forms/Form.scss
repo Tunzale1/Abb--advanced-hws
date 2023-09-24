@@ -1,0 +1,56 @@
+select {
+  width: 70%;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+label {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 5px;
+  color: blue;
+}
+.check {
+  background-color: blue;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+.error-message {
+  margin-bottom: 5px;
+  color: red;
+}
+.title {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  background-color: blue;
+  width: 70%;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+}
+.form{
+  display: flex;
+  flex-direction: column;
+}
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"]{
+  width: 70%;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+@media screen and (max-width:1300px){
+  .container{
+    margin-left: 15px;
+  }
+}

@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal component snapshot 1`] = `
+<div
+  className="modal-overlay"
+  data-testid="overlay"
+>
+  <div
+    className="modal"
+    data-testid="modal"
+    onClick={[Function]}
+  >
+    <div
+      className="modal-content"
+    >
+      <div
+        className="modal-header"
+      >
+        <h3
+          className="modal-title"
+          data-testid="title"
+        />
+        <span
+          className="close-btn"
+        >
+          <i
+            className="fa-regular fa-2x fa-square-minus"
+          />
+        </span>
+      </div>
+      <div
+        className="modal-footer"
+      />
+    </div>
+  </div>
+</div>
+`;
