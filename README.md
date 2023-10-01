@@ -17,3 +17,4 @@
 - hw1- Create a new Node.js project using npm that will include a simple server.
 - hw2- Typescript / npx jest
 - hw3- Web server
+- hw4- Create a server using express./ requests: GET, POST, PUT, DELETE
