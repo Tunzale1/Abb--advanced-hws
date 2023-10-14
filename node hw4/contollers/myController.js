@@ -1,6 +1,65 @@
-import fs from "fs"
-
-let myArray = JSON.parse(fs.readFileSync("./data.json", "utf-8"));
+let myArray = [
+    {
+        "id": 1,
+        "title": "A Fox in Chernihiv Zoo Gives Birth to a Cub",
+        "text": "A wonderful event has occurred at the Chernihiv Zoo! A fox named Red has given birth to a beautiful cub! So hurry up and visit to see this adorable creature!"
+      },
+      {
+        "id": 2,
+        "title": "A Beautiful Boat Ride in Kashmir",
+        "text": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. "
+      },
+      {
+        "id": 3,
+        "title": "Can You See the Link Between God and Justice?",
+        "text": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. "
+      },
+      {
+        "id": 4,
+        "title": "Dissidents And Women Are Targeted By Iran’s High-Tech Surveillance",
+        "text": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. "
+      },
+      {
+        "id": 5,
+        "title": "Are You Sure Multiculturalism Has Failed, Ms. Braverman?",
+        "text": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. "
+      },
+      {
+        "id": 6,
+        "title": "Canada’s Prime Minister Should Not Be So Quick to Condemn India",
+        "text": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. "
+      },
+      {
+        "id": 7,
+        "title": "Is the German Economy Now Destined to Decline?",
+        "text": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. "
+      },
+      {
+        "id": 8,
+        "title": "A General Shows How to Deflate a Hysteria Balloon",
+        "text": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. "
+      },
+      {
+      "id": 9,
+      "title": "‘This is history’: UAW workers from the picket lines",
+      "text": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. "
+    },
+    {
+      "id": 10,
+      "title": "A Fox in Chernihiv Zoo Gives Birth to a Cub",
+      "text": "A wonderful event has occurred at the Chernihiv Zoo! A fox named Red has given birth to a beautiful cub! So hurry up and visit to see this adorable creature!"
+    },
+    {
+      "id": 11,
+      "title": "A Beautiful Boat Ride in Kashmir",
+      "text": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. "
+    },
+    {
+      "id": 12,
+      "title": "Can You See the Link Between God and Justice?",
+      "text": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. "
+    }
+    ]
 
 
 export function getArticles(req, res) {
@@ -52,7 +111,7 @@ export function createArticle(req, res) {
 export function updateArticle(req, res) {
     try{
     const post = myArray.find(p => p.id === +req.params.id);
-    if (!post) return res.status(404).send("there is error");
+    if (!post) return res.status(404).send("There are have not any article");
     post.title = req.body.title || post.title
     post.text = req.body.text || post.text
     res.json(post)
