@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsposts</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            const socket = io();
+
+            const fetchNews = async () => {
+                try {
+                    const token = localStorage.getItem('token');
+                    const response = await fetch('api/newsposts/', {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}`
+                        }
+                    });
+                    const data = await response.json();
+                    const newsList = document.getElementById('newsList');
+
+                    data.forEach((newspost) => {
+                        const listItem = document.createElement('li');
+                        listItem.className = "bg-gray-200 p-4 rounded-md shadow-md mb-4";
+                        listItem.id = `${newspost.id}`;
+                        listItem.innerHTML = `
+                            <h2 class="text-xl font-semibold text-gray-800 mb-2">${newspost.title}</h2>
+                            <p class="text-gray-600">${newspost.text}</p>
+                        `;
+                        newsList.appendChild(listItem);
+                    });
+
+                } catch (error) {
+                    console.log(error);
+                }
+            };
+
+            socket.on('addNews', (newspost) => {
+                if (newspost.title && newspost.text) {
+                    const newsList = document.getElementById('newsList');
+                    const listItem = document.createElement('li');
+                    listItem.id = `${newspost.id}`;
+                    listItem.className = "bg-gray-200 p-4 rounded-md shadow-md mb-4";
+                    listItem.innerHTML = `
+                        <h2 class="text-xl font-semibold text-gray-800 mb-2">${newspost.title}</h2>
+                        <p class="text-gray-600">${newspost.text}</p>
+                    `;
+                    newsList.appendChild(listItem);
+                    socket.io('addNews', newspost);
+                }
+            });
+
+            socket.on('deleteNews', async (newspost) => {
+                console.log(newspost.id);
+                if (newspost.id) {
+                    const listItemToRemove = document.getElementById(newspost.id);
+
+                    if (listItemToRemove) {
+                        listItemToRemove.parentNode.removeChild(listItemToRemove);
+                        socket.emit('deleteNews', { id: newspost.id });
+                    } else {
+                        console.error("List item with the specified ID not found in the DOM.");
+                    }
+                }
+            });
+
+            socket.on('updateNews', (newspost) => {
+                console.log('Received updateNews event:', newspost);
+
+                const liToEdit = document.getElementById(`${newspost.id}`);
+                if (liToEdit) {
+                    const titleElement = liToEdit.querySelector('.text-xl');
+                    const textElement = liToEdit.querySelector('.text-gray-600');
+
+                    if (titleElement && textElement) {
+                        titleElement.textContent = newspost.title;
+                        textElement.textContent = newspost.text;
+                    } else {
+                        console.error("Title or text element not found in the list item.");
+                    }
+                } else {
+                    console.error("List item with ID not found in the DOM.");
+                }
+            });
+
+            fetchNews();
+        });
+    </script>
+</head>
+
+<body class="bg-blue-100 flex items-center justify-center min-h-screen py-6">
+    <div class="container mx-auto">
+        <h1 class="text-3xl font-semibold text-gray-800 mb-4 text-center">Newsposts</h1>
+        <ul class="grid gap-4">
+            <!-- News items will be added here dynamically -->
+        </ul>
+    </div>
+</body>
+
+</html>
